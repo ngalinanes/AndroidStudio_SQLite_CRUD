@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ciudades del mundo"
+        android:layout_marginLeft="20sp"
+        android:layout_marginTop="30dp"
+        android:textSize="30sp"
+        android:layout_marginStart="20sp"
+        android:textStyle="bold"
+        android:id="@+id/cities_tittle"/>
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10sp"
+        android:hint="Pais"
+        android:layout_marginLeft="20sp"
+        android:textSize="15sp"
+        android:layout_below="@id/cities_tittle"
+        android:id="@+id/country"
+        android:layout_marginStart="20sp"
+        android:autofillHints="Pais"
+        android:inputType="text" />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10sp"
+        android:hint="Ciudad"
+        android:autofillHints="Pais"
+        android:inputType="text"
+        android:layout_marginLeft="20sp"
+        android:textSize="15sp"
+        android:layout_below="@id/country"
+        android:id="@+id/city"
+        android:layout_marginStart="20sp" />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10sp"
+        android:autofillHints="Pais"
+        android:inputType="text"
+        android:hint="N° de habitantes"
+        android:layout_marginLeft="20sp"
+        android:textSize="15sp"
+        android:layout_below="@id/city"
+        android:id="@+id/people"
+        android:layout_marginStart="20sp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/people"
+        android:id="@+id/buttonGetCity"
+        android:layout_marginLeft="20sp"
+        android:text="Consultar por ciudad"
+        android:layout_marginTop="15sp"
+        android:layout_marginStart="20sp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonGetCity"
+        android:layout_marginLeft="20sp"
+        android:text="Cargar una nueva ciudad"
+        android:id="@+id/buttonNewCity"
+        android:layout_marginStart="20sp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonNewCity"
+        android:id="@+id/buttonDeleteCity"
+        android:layout_marginLeft="20sp"
+        android:layout_marginStart="20sp"
+        android:text="Borrar una ciudad por nombre"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonDeleteCity"
+        android:id="@+id/buttonDeleteAllCities"
+        android:layout_marginLeft="20sp"
+        android:layout_marginStart="20sp"
+        android:text="Borrar todas las ciudades de un pais"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonDeleteAllCities"
+        android:layout_marginLeft="20sp"
+        android:layout_marginStart="20sp"
+        android:text="Modificar la poblacion de una ciudad"/>
+
+
+
+
+
+</RelativeLayout>
