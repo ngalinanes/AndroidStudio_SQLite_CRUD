@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class DBHelper extends SQLiteOpenHelper {
 
@@ -50,6 +51,8 @@ public class DBHelper extends SQLiteOpenHelper {
     public void getcity(EditText citysearch, EditText country, EditText people){
         String city = citysearch.getText().toString();
         Cursor res = this.getReadableDatabase().rawQuery("select country,people from cities where city= ?", new String[] {city});
+        country.setText("");
+        people.setText("");
         citysearch.setText("");
         while (res.moveToNext()){
             country.append(res.getString(0));
@@ -69,5 +72,15 @@ public class DBHelper extends SQLiteOpenHelper {
             people.setText("");
             citysearch.setText("");
         }
+    }
+
+    public void deleteAllCities(EditText countrysearch, EditText city, EditText people){
+        String country = countrysearch.getText().toString();
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete("cities", "country=?",new String[]{country});
+        db.close();
+        countrysearch.setText("");
+        people.setText("");
+        city.setText("");
     }
 }

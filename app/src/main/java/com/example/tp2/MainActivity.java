@@ -2,6 +2,7 @@ package com.example.tp2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -12,7 +13,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     EditText City, Country, People;
-    Button buttonGetCity, buttonNewCity, buttonDeleteCity;
+    Button buttonGetCity, buttonNewCity, buttonDeleteCity, buttonDeleteAllCities;
     DBHelper DB;
 
     @Override
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         buttonGetCity = (Button) findViewById(R.id.buttonGetCity);
         buttonNewCity = (Button) findViewById(R.id.buttonNewCity);
         buttonDeleteCity = (Button) findViewById(R.id.buttonDeleteCity);
+        buttonDeleteAllCities = (Button) findViewById(R.id.buttonDeleteAllCities);
 
         City = (EditText) findViewById(R.id.city);
         Country = (EditText) findViewById(R.id.country);
@@ -66,6 +68,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 DB.deletecity(City, Country, People);
+            }
+        });
+
+        buttonDeleteAllCities.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String countrytemp = Country.getText().toString();
+                Toast.makeText(MainActivity.this, countrytemp, Toast.LENGTH_SHORT).show();
+                DB.deleteAllCities(Country, City, People);
             }
         });
     }
