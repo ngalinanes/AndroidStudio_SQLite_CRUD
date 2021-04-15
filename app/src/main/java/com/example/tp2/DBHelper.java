@@ -83,4 +83,19 @@ public class DBHelper extends SQLiteOpenHelper {
         people.setText("");
         city.setText("");
     }
+
+    public void editPeople(EditText city, EditText country, EditText peoplesearch){
+        String people = peoplesearch.getText().toString();
+        String cityaux = city.getText().toString();
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("update cities set people=? where city=?", new String[] {people,cityaux});
+        country.setText("");
+        peoplesearch.setText("");
+        city.setText("");
+        while (res.moveToNext()){
+            country.setText("");
+            peoplesearch.setText("");
+            city.setText("");
+        }
+    }
 }

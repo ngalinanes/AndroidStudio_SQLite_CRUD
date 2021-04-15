@@ -13,7 +13,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     EditText City, Country, People;
-    Button buttonGetCity, buttonNewCity, buttonDeleteCity, buttonDeleteAllCities;
+    Button buttonGetCity, buttonNewCity, buttonDeleteCity, buttonDeleteAllCities, buttonEditPeople;
     DBHelper DB;
 
     @Override
@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         buttonNewCity = (Button) findViewById(R.id.buttonNewCity);
         buttonDeleteCity = (Button) findViewById(R.id.buttonDeleteCity);
         buttonDeleteAllCities = (Button) findViewById(R.id.buttonDeleteAllCities);
+        buttonEditPeople = (Button) findViewById(R.id.buttonEditPeople);
 
         City = (EditText) findViewById(R.id.city);
         Country = (EditText) findViewById(R.id.country);
@@ -74,9 +75,14 @@ public class MainActivity extends AppCompatActivity {
         buttonDeleteAllCities.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String countrytemp = Country.getText().toString();
-                Toast.makeText(MainActivity.this, countrytemp, Toast.LENGTH_SHORT).show();
                 DB.deleteAllCities(Country, City, People);
+            }
+        });
+
+        buttonEditPeople.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DB.editPeople(City, Country, People);
             }
         });
     }
